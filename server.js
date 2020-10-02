@@ -11,7 +11,7 @@ const entries = require('./controllers/entries')
 const db = knex({
         client: 'pg',
         connection: {
-          host : '127.0.0.1',
+          host : 'postgresql-graceful-25481',
           user : 'omsaid',
           password : '',
           database : 'smart-brain'
