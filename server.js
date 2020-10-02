@@ -24,7 +24,7 @@ const app = express();
 app.use(bodyParser.json())
 app.use(cors())
 
-app.listen(process.env.PORT || 3000, () => {console.log(`app is running on port ${process.env.PORT}`)})
+app.get('/', (req, res) => { res.send('it is working')})
 
 app.post('/signin', signin.handleSignin(db, bcrypt))
 app.post('/register', register.handleRegister(db, bcrypt))
@@ -32,3 +32,5 @@ app.get('/profile/:id', profile.profileId(db))
 app.put('/image', entries.entriesIncrement(db))
 app.post('/imageUrl', (req, res) => {entries.handleApiCall(req, res)})
 app.put('/resetEntries', entries.entriesReset(db))
+
+app.listen(process.env.PORT || 3000, () => {console.log(`app is running on port ${process.env.PORT}`)})
